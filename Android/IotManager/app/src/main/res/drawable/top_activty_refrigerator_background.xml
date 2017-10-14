@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- layer-listでitemを重ねられます。 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- item① -->
+    <item>
+        <!-- shape:rectangle(=四角形) -->
+        <shape android:shape="rectangle">
+            <!-- item②に対して2dp内側に入る。 -->
+            <padding
+                android:bottom="@dimen/top_activity_subheading"
+                android:left="@dimen/top_activity_subheading"
+                android:right="@dimen/top_activity_subheading"
+                android:top="@dimen/top_activity_subheading" />
+            <!-- 色:パープル -->
+            <solid android:color="@color/color_top_activity_subheading_back" />
+        </shape>
+    </item>
+
+    <!-- item② -->
+    <item>
+        <!-- shape:rectangle(=四角形) -->
+        <shape android:shape="rectangle">
+            <!-- item③に対して2dp内側に入る。 -->
+            <padding
+                android:bottom="@dimen/top_activity_subheading"
+                android:left="@dimen/top_activity_subheading"
+                android:right="@dimen/top_activity_subheading"
+                android:top="@dimen/top_activity_subheading" />
+            <!-- 色:白 -->
+            <solid android:color="#ffffff" />
+        </shape>
+    </item>
+
+    <!-- item③ -->
+    <item>
+        <!-- shape:rectangle(=四角形) -->
+        <shape android:shape="rectangle">
+            <!-- item②に対して2dp内側に入る。 -->
+            <padding
+                android:bottom="@dimen/top_activity_subheading"
+                android:left="@dimen/top_activity_subheading"
+                android:right="@dimen/top_activity_subheading"
+                android:top="@dimen/top_activity_subheading" />
+            <!-- 色:パープル -->
+            <solid android:color="@color/color_top_activity_subheading_back" />
+        </shape>
+        <!--
+        <shape android:shape="rectangle">
+            <!- 色:パープル ->
+            <solid android:color="#9b59b6" />
+        </shape>
+        -->
+    </item>
+
+</layer-list>

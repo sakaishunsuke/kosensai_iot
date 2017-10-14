@@ -1,8 +1,10 @@
 <resources>
-    <string name="app_name">IotManager</string>
+    <string name="IoH_Controller">IotManager</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="top_activity_refrigrator">冷蔵庫の中！</string>
 </resources>
