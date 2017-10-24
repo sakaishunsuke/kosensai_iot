@@ -12,7 +12,7 @@
     <!-- あると便利系 -->
     <color name="clear">#00ffffff</color>  <!--透明色 -->
 
-    <!-- ホーム画面(top_activity)について -->
+    <!-- ホーム画面(activity_top)について -->
     <color name="activity_top_subheading_back">#8e44ad</color>　<!--　現在使ってない -->
 
     <!-- 冷蔵庫ダイアログ(dialog_refrigerator)について -->

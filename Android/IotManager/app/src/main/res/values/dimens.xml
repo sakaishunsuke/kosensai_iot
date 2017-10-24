@@ -11,12 +11,14 @@
         <好きな名前>の中は小文字のみで「_」で区切る
     -->
 
-    <!-- ホーム画面(top_activity)について -->
+    <!-- ホーム画面(activity_top)について -->
     <dimen name="activity_top_icon_margin">10dp</dimen>
 
     <!-- 冷蔵庫ダイアログ(dialog_refrigerator)について -->
 
-    <!--  ○○のレイアウトについて -->
+    <!-- 各Iot詳細画面(activity_iot_details)について -->
+    <dimen name="activity_details_icon_margin">15dp</dimen>
+    <dimen name="activity_details_sub_titel_margin">10dp</dimen>
 
 
 </resources>
