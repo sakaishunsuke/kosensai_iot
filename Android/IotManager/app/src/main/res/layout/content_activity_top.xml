@@ -8,116 +8,111 @@
     tools:context="com.example.iotmanager.ActivityTop"
     tools:showIn="@layout/app_bar_activity_top">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="344dp"
         android:layout_height="495dp"
+        android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
 
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
-            <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageButton
-                    android:id="@+id/imgButTopActivityDoor"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/activity_top_icon_margin"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:background="@color/clear"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/door_open" />
-
-                <ImageButton
-                    android:id="@+id/imgButTopActivityCurtain"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/activity_top_icon_margin"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:background="@color/clear"
-                    android:saveEnabled="false"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/curtai_open" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout3"
+            <ImageButton
+                android:id="@+id/imgButTopActivityDoor"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/linearLayout2"
-                android:layout_centerHorizontal="true"
-                android:layout_weight="1">
-
-                <ImageButton
-                    android:id="@+id/imgButTopActivityRefrigerator"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/activity_top_icon_margin"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:background="@color/clear"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/refrigerator_button" />
-
-                <ImageButton
-                    android:id="@+id/imgButTopActivityLight"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/activity_top_icon_margin"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:background="@color/clear"
-                    android:saveEnabled="false"
-                    android:scaleType="fitCenter"
-                    android:scaleX="1"
-                    android:scaleY="1"
-                    android:src="@drawable/light_on" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/linearLayout3"
+                android:layout_margin="@dimen/activity_top_icon_margin"
                 android:layout_weight="1"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="8dp">
+                android:adjustViewBounds="true"
+                android:background="@color/clear"
+                android:scaleType="fitCenter"
+                android:src="@drawable/door_open" />
 
-                <ImageButton
-                    android:id="@+id/imgButTopActivityMyfavorite01"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/activity_top_icon_margin"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:background="@color/clear"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/myfavorite_button01" />
+            <ImageButton
+                android:id="@+id/imgButTopActivityCurtain"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/activity_top_icon_margin"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/clear"
+                android:saveEnabled="false"
+                android:scaleType="fitCenter"
+                android:src="@drawable/curtai_open" />
 
-                <ImageButton
-                    android:id="@+id/imgButTopActivityMyfavorite02"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/activity_top_icon_margin"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:background="@color/clear"
-                    android:saveEnabled="false"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/myfavorite_button02" />
+        </LinearLayout>
 
-            </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout2"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1">
 
-        </RelativeLayout>
-    </ScrollView>
+            <ImageButton
+                android:id="@+id/imgButTopActivityRefrigerator"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/activity_top_icon_margin"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/clear"
+                android:scaleType="fitCenter"
+                android:src="@drawable/refrigerator_button" />
+
+            <ImageButton
+                android:id="@+id/imgButTopActivityLight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_top_icon_margin"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/clear"
+                android:saveEnabled="false"
+                android:scaleType="fitCenter"
+                android:src="@drawable/light_on" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/linearLayout3"
+            android:layout_weight="1"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp">
+
+            <ImageButton
+                android:id="@+id/imgButTopActivityMyfavorite01"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/activity_top_icon_margin"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/clear"
+                android:scaleType="fitCenter"
+                android:src="@drawable/myfavorite_button01" />
+
+            <ImageButton
+                android:id="@+id/imgButTopActivityMyfavorite02"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/activity_top_icon_margin"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/clear"
+                android:saveEnabled="false"
+                android:scaleType="fitCenter"
+                android:src="@drawable/myfavorite_button02" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
