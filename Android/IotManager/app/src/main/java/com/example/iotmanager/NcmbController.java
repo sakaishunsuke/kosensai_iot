@@ -35,6 +35,7 @@ public class NcmbController {
     Context context;
     //冷蔵庫系
     String  refrigerator_date="--/--/-- --:--";
+    int drink1=0,drink2=0;
     //ドア系　
     ArrayList<ArrayList<String>>doorList = new ArrayList<ArrayList<String>>();//リストは順番、種類、それぞれの値となっている
     public static final int STATE = 0,USER_NAME = 1,REQUEST=2;
@@ -55,6 +56,7 @@ public class NcmbController {
         final boolean toast = false;
         if(refrigeratorLoding)return false;
         else refrigeratorLoding = true;
+        final boolean[] subLoding = {true};
         NCMBQuery<NCMBFile> query = NCMBFile.getQuery();
         //query.whereEqualTo("tmimeType", "image/jpeg");//画像のみ
         query.setLimit(5);//5個まで
@@ -66,7 +68,8 @@ public class NcmbController {
                 if (e != null) {
                     //検索失敗
                     //たぶん0個の時もここかな？
-                    refrigeratorLoding = false;
+                    if (subLoding[0]) subLoding[0] =false;
+                    else refrigeratorLoding = false;
                     if(toast)Toast.makeText(context,"クラウドにデータがない",Toast.LENGTH_SHORT).show();
                 } else {
                     //検索成功
@@ -83,9 +86,7 @@ public class NcmbController {
                                     //取得成功
                                     try {
                                         //FileOutputStream fileImage = new File(context.getFilesDir(),"refrigeratorImage.jpeg");
-                                        FileOutputStream fileImage = context.openFileOutput("refrigeratorImage.jpeg", Context.MODE_APPEND);
-                                        //new openFileOutput("refrigeratorImage.jpeg", Context.MODE_PRIVATE);
-                                        //FileOutputStream fileImage = new FileOutputStream(Environment.getExternalStorageDirectory().getPath()+"/refrigeratorImage.jpeg");
+                                        FileOutputStream fileImage = context.openFileOutput("refrigeratorImage.jpeg", Context.MODE_PRIVATE);
                                         fileImage.write(results.get(finalI).getFileData());//データを書き込む
                                         fileImage.close();//最後に閉じる
                                         refrigerator_date = results.get(finalI).getFileName();//ファイルの名前(日時の取得)
@@ -101,13 +102,40 @@ public class NcmbController {
                                         if(toast)Toast.makeText(context,"データが書き込めない",Toast.LENGTH_SHORT).show();
                                         e1.printStackTrace();
                                     }
-                                    refrigeratorLoding = false;
+                                    if (subLoding[0]) subLoding[0] =false;
+                                    else refrigeratorLoding = false;
 
                                     results.get(finalI);
                                 }
                             }
                         });
                     }
+                }
+            }
+        });
+        //飲み物の状態確認
+        NCMBQuery<NCMBObject> drinkQuery = new NCMBQuery<>("RefrigeratorLog");
+        query.setLimit(1);//1個まで
+        query.addOrderByDescending("createDate");//データを降順で取得するためのフィールドを設定
+        //データストアからデータを検索
+        drinkQuery.findInBackground(new FindCallback<NCMBObject>() {
+            @Override
+            public void done(List<NCMBObject> results, NCMBException e) {
+                if (e != null) {
+                    if(toast)Toast.makeText(context,"クラウドにデータがない",Toast.LENGTH_SHORT).show();
+                    if (subLoding[0]) subLoding[0] =false;
+                    else refrigeratorLoding = false;
+                    //検索失敗時の処理
+                } else {
+                    if(results.size() > 0) doorList.clear();//入れるデータがあれば中身を消す
+                    for(int i=0;i<results.size() ; i++) {
+                        drink1 = results.get(i).getInt("drink1");
+                        drink2 = results.get(i).getInt("drink2");
+                    }
+                    if(toast)Toast.makeText(context,"冷蔵庫飲み物log取得完了",Toast.LENGTH_SHORT).show();
+                    if (subLoding[0]) subLoding[0] =false;
+                    else refrigeratorLoding = false;
+                    //検索成功時の処理
                 }
             }
         });

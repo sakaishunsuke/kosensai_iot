@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <!-- コンテンツ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_below="@+id/dialog_title"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_dialog"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="20dp">
+
+        <!-- タイトル -->
+        <TextView
+            android:id="@+id/dialog_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_title"
+            android:padding="10dp"
+            android:text="冷蔵庫"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <!-- メッセージ -->
+        <ImageView
+            android:id="@+id/dialog_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:saveEnabled="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/curtai_open" />
+
+        <TextView
+            android:id="@+id/dialog_drink1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="6dp"
+            android:text="飲み物1　OOｇ"
+            android:textColor="#333333"
+            android:textSize="20sp" />
+
+        <!-- OK ボタン -->
+
+        <TextView
+            android:id="@+id/dialog_drink2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="6dp"
+            android:text="飲み物2　OOｇ"
+            android:textColor="#333333"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/dialog_time_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="6dp"
+            android:text="2017/10/28 9:00"
+            android:textColor="#333333"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/dialog_positive_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bt_dialog_positive"
+            android:text="OK"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+    <!-- Close ボタン -->
+
+</RelativeLayout>

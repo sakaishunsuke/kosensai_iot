@@ -9,125 +9,115 @@
     tools:showIn="@layout/app_bar_activity_top">
 
     <ScrollView
-        android:layout_width="368dp"
+        android:layout_width="344dp"
         android:layout_height="495dp"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="8dp">
+            android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                <LinearLayout
+                <ImageButton
+                    android:id="@+id/imgButTopActivityDoor"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="@dimen/top_activity_icon_margin"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:adjustViewBounds="true"
+                    android:background="@color/colorClear"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/door_open" />
 
-                    <ImageButton
-                        android:id="@+id/imgButTopActivityDoor"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/door_open" />
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_horizontal"
-                        android:background="#ffffff"
-                        android:gravity="center_horizontal"
-                        android:text="@string/top_activity_door"
-                        android:textSize="@dimen/top_activity_door_curtain" />
-
-                </LinearLayout>
-
-                <LinearLayout
+                <ImageButton
+                    android:id="@+id/imgButTopActivityCurtain"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="@dimen/top_activity_icon_margin"
                     android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageButton
-                        android:id="@+id/imgButTopActivityCurtain"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/curtai_open"
-                        android:saveEnabled="false" />
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_horizontal"
-                        android:background="#ffffff"
-                        android:gravity="center_horizontal"
-                        android:text="@string/top_activity_curtain"
-                        android:textSize="@dimen/top_activity_door_curtain" />
-
-                </LinearLayout>
+                    android:adjustViewBounds="true"
+                    android:background="@color/colorClear"
+                    android:saveEnabled="false"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/curtai_open" />
 
             </LinearLayout>
 
-            <FrameLayout
+            <LinearLayout
+                android:id="@+id/linearLayout3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_below="@+id/linearLayout2"
+                android:layout_centerHorizontal="true"
                 android:layout_weight="1">
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                </FrameLayout>
-
-                <LinearLayout
+                <ImageButton
+                    android:id="@+id/imgButTopActivityRefrigerator"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="@dimen/top_activity_icon_margin"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:adjustViewBounds="true"
+                    android:background="@color/colorClear"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/refrigerator_button" />
 
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:background="#ffffff"
-                        android:gravity="center_horizontal"
-                        android:text="@string/top_activity_refrigrator"
-                        android:textSize="@dimen/top_activity_subheading" />
+                <ImageButton
+                    android:id="@+id/imgButTopActivityLight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/top_activity_icon_margin"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@color/colorClear"
+                    android:saveEnabled="false"
+                    android:scaleType="fitCenter"
+                    android:scaleX="1"
+                    android:scaleY="1"
+                    android:src="@drawable/light_on" />
 
-                </LinearLayout>
+            </LinearLayout>
 
-            </FrameLayout>
-
-            <ImageView
-                android:id="@+id/imgRefrigrator"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"/>
-
-            <TextView
-                android:id="@+id/textRefrigratorTime"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/linearLayout3"
                 android:layout_weight="1"
-                android:background="#ffffff"
-                android:gravity="center_horizontal"
-                android:textSize="@dimen/top_activity_subheading" />
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="8dp">
 
-        </LinearLayout>
+                <ImageButton
+                    android:id="@+id/imgButTopActivityMyfavorite01"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/top_activity_icon_margin"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@color/colorClear"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/myfavorite_button01" />
+
+                <ImageButton
+                    android:id="@+id/imgButTopActivityMyfavorite02"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/top_activity_icon_margin"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@color/colorClear"
+                    android:saveEnabled="false"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/myfavorite_button02" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
     </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
