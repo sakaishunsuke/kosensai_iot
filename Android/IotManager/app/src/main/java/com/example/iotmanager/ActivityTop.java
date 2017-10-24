@@ -75,6 +75,13 @@ public class ActivityTop extends AppCompatActivity implements NavigationView.OnN
                 setDoorRequest();//ドアの処理開始
             }
         });
+        img_but_door.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+                return false;
+            }
+        });
         img_but_curtain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,6 +113,7 @@ public class ActivityTop extends AppCompatActivity implements NavigationView.OnN
             }
         });
 
+        //以下ナビゲーションバーの設定
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -182,7 +190,6 @@ public class ActivityTop extends AppCompatActivity implements NavigationView.OnN
             Toast.makeText(this.getApplicationContext(),"取得開始できません",Toast.LENGTH_SHORT).show();
         }
     }
-
 
     //冷蔵庫の取得＆画像に差し替え開始
     private void getRefrigeratorImage(){
@@ -275,6 +282,7 @@ public class ActivityTop extends AppCompatActivity implements NavigationView.OnN
         ncmbController.onStop();
     }
 
+    /*
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -283,29 +291,7 @@ public class ActivityTop extends AppCompatActivity implements NavigationView.OnN
         } else {
             super.onBackPressed();
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.activity_top, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
