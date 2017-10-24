@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "945450657656",
+    "firebase_url": "https://kousensaiiot.firebaseio.com",
+    "project_id": "kousensaiiot",
+    "storage_bucket": "kousensaiiot.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945450657656:android:48f93878a5a5975a",
+        "android_client_info": {
+          "package_name": "com.example.iotmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "945450657656-pgsn7dn7omqlnoto73uuc15rr1caq3s9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.iotmanager",
+            "certificate_hash": "c531fca2e1b521898a1fdc866c638b2c142d17b5"
+          }
+        },
+        {
+          "client_id": "945450657656-48ke847ab3ufofkdlb6uu4g8mkhp9n0u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4SxOGwVWLAsSwxTvkd2yYq9jJmhU9qAI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "945450657656-48ke847ab3ufofkdlb6uu4g8mkhp9n0u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

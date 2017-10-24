@@ -5,6 +5,7 @@ import com.nifty.cloud.mb.core.NCMB;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -64,6 +65,10 @@ public class ActivityTop extends AppCompatActivity implements NavigationView.OnN
         img_but_myfavorite2 = (ImageButton) findViewById(R.id.imgButTopActivityMyfavorite02);
                         //img_refrigrator = (ImageView) findViewById(R.id.imgRefrigrator);
                         //text_refrigrator_time = (TextView) findViewById(R.id.textRefrigratorTime);
+
+        //FCM
+        Intent intent = new Intent(this.getApplicationContext(),MyFirebaseInstanceIDService.class);
+        startService(intent);
 
         //NCMB系
         ncmbController = new NcmbController(this.getApplication());
