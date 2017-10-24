@@ -6,13 +6,17 @@
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
-    <!--  top_activityのレイアウトについて -->
-    <dimen name="top_activity_subheading">40sp</dimen>
-    <dimen name="top_activity_door_curtain">30sp</dimen>
-    <dimen name="top_activity_icon_margin">10dp</dimen>
+    <!--
+        命名規則　<使う場所の種類、例→activity、dialog>_<使う場所の名前>_<好きな名前>
+        <好きな名前>の中は小文字のみで「_」で区切る
+    -->
 
+    <!-- ホーム画面(top_activity)について -->
+    <dimen name="activity_top_icon_margin">10dp</dimen>
 
-    <!--  top_activityのレイアウトについて -->
+    <!-- 冷蔵庫ダイアログ(dialog_refrigerator)について -->
+
+    <!--  ○○のレイアウトについて -->
 
 
 </resources>

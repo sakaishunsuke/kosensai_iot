@@ -3,7 +3,7 @@
 
     <corners android:topLeftRadius="5dp" android:topRightRadius="5dp"/>
 
-    <solid android:color="#9acd32"/>
-    <gradient android:startColor="#9acd32" android:endColor="#9acd32"/>
+    <solid android:color="@color/dialog_refrigerator_base_color"/>
+    <gradient android:startColor="@color/dialog_refrigerator_base_color" android:endColor="@color/dialog_refrigerator_base_color"/>
 
 </shape>

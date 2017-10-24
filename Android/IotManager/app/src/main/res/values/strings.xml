@@ -6,7 +6,17 @@
 
     <string name="action_settings">Settings</string>
 
-    <string name="top_activity_refrigrator">冷蔵庫の中！</string>
-    <string name="top_activity_door">ドアの\n状態</string>
-    <string name="top_activity_curtain">カーテンの\n状態</string>
+    <!--
+        命名規則　<使う場所の種類、例→activity、dialog>_<使う場所の名前>_<好きな名前>
+        <好きな名前>の中は小文字のみで「_」で区切る
+    -->
+
+    <!-- ホーム画面(top_activity)について -->
+
+
+    <!-- 冷蔵庫ダイアログ(dialog_refrigerator)について -->
+    <string name="dialog_refrigrator_titel">冷蔵庫！</string>
+    <string name="dialog_refrigrator_exit_button_messe">OK</string>
+
+
 </resources>

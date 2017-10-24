@@ -3,7 +3,7 @@
 
     <corners android:radius="5dp"/>
 
-    <stroke android:width="2dp" android:color="#9acd32"/>
+    <stroke android:width="2dp" android:color="@color/dialog_refrigerator_base_color"/>
 
     <gradient android:startColor="#ffffff" android:endColor="#dcdcdc" android:angle="90"/>
 

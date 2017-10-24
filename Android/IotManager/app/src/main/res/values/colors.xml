@@ -4,6 +4,20 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="color_top_activity_subheading_back">#8e44ad</color>
-    <color name="colorClear">#00ffffff</color>
+    <!--
+        命名規則　<使う場所の種類、例→activity、dialog>_<使う場所の名前>_<好きな名前>
+        <好きな名前>の中は小文字のみで「_」で区切る
+    -->
+
+    <!-- あると便利系 -->
+    <color name="clear">#00ffffff</color>  <!--透明色 -->
+
+    <!-- ホーム画面(top_activity)について -->
+    <color name="activity_top_subheading_back">#8e44ad</color>　<!--　現在使ってない -->
+
+    <!-- 冷蔵庫ダイアログ(dialog_refrigerator)について -->
+    <color name="dialog_refrigerator_base_color">#5246ff</color>
+    <color name="dialog_refrigerator_titel_button_color">#ffffff</color>
+    <color name="dialog_refrigerator_messe_color">#000000</color>
+
 </resources>

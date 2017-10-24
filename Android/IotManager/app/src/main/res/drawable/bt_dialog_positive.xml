@@ -3,6 +3,6 @@
 
     <corners android:radius="5dp" />
 
-    <solid android:color="#9acd32" />
+    <solid android:color="@color/dialog_refrigerator_base_color" />
 
 </shape>

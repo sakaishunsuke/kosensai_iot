@@ -25,8 +25,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_title"
             android:padding="10dp"
-            android:text="冷蔵庫"
-            android:textColor="@android:color/white"
+            android:text="@string/dialog_refrigrator_titel"
+            android:textColor="@color/dialog_refrigerator_titel_button_color"
             android:textSize="18sp" />
 
         <!-- メッセージ -->
@@ -48,7 +48,7 @@
             android:gravity="center_horizontal"
             android:lineSpacingExtra="6dp"
             android:text="飲み物1　OOｇ"
-            android:textColor="#333333"
+            android:textColor="@color/dialog_refrigerator_messe_color"
             android:textSize="20sp" />
 
         <!-- OK ボタン -->
@@ -62,7 +62,7 @@
             android:gravity="center_horizontal"
             android:lineSpacingExtra="6dp"
             android:text="飲み物2　OOｇ"
-            android:textColor="#333333"
+            android:textColor="@color/dialog_refrigerator_messe_color"
             android:textSize="20sp" />
 
         <TextView
@@ -74,7 +74,7 @@
             android:gravity="center_horizontal"
             android:lineSpacingExtra="6dp"
             android:text="2017/10/28 9:00"
-            android:textColor="#333333"
+            android:textColor="@color/dialog_refrigerator_messe_color"
             android:textSize="20sp" />
 
         <Button
@@ -83,8 +83,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/bt_dialog_positive"
-            android:text="OK"
-            android:textColor="@android:color/white" />
+            android:text="@string/dialog_refrigrator_exit_button_messe"
+            android:textColor="@color/dialog_refrigerator_titel_button_color" />
 
     </LinearLayout>
 
