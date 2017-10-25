@@ -42,7 +42,7 @@
                 android:background="@color/clear"
                 android:saveEnabled="false"
                 android:scaleType="fitCenter"
-                android:src="@drawable/curtai_open" />
+                android:src="@drawable/curtain_open" />
 
         </LinearLayout>
 

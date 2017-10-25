@@ -37,7 +37,7 @@
             android:layout_margin="10dp"
             android:saveEnabled="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/curtai_open" />
+            android:src="@drawable/curtain_open" />
 
         <TextView
             android:id="@+id/dialog_drink1"
@@ -84,7 +84,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/bt_dialog_positive"
             android:text="@string/dialog_refrigrator_exit_button_messe"
-            android:textColor="@color/dialog_refrigerator_titel_button_color" />
+            android:textColor="@color/dialog_refrigerator_titel_button_color"/>
 
     </LinearLayout>
 
