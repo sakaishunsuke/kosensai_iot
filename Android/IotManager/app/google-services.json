@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "945450657656",
-    "firebase_url": "https://kousensaiiot.firebaseio.com",
-    "project_id": "kousensaiiot",
-    "storage_bucket": "kousensaiiot.appspot.com"
+    "project_number": "140436634970",
+    "firebase_url": "https://iotmanager-2745d.firebaseio.com",
+    "project_id": "iotmanager-2745d",
+    "storage_bucket": "iotmanager-2745d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:945450657656:android:48f93878a5a5975a",
+        "mobilesdk_app_id": "1:140436634970:android:48f93878a5a5975a",
         "android_client_info": {
           "package_name": "com.example.iotmanager"
         }
       },
       "oauth_client": [
         {
-          "client_id": "945450657656-pgsn7dn7omqlnoto73uuc15rr1caq3s9.apps.googleusercontent.com",
+          "client_id": "140436634970-hbtrlutega5pgt0l0b15oql6mqv5ug3b.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.iotmanager",
-            "certificate_hash": "c531fca2e1b521898a1fdc866c638b2c142d17b5"
+            "certificate_hash": "c2eb1972ba3451472d8ac6db9921215a2ec1732a"
           }
         },
         {
-          "client_id": "945450657656-48ke847ab3ufofkdlb6uu4g8mkhp9n0u.apps.googleusercontent.com",
+          "client_id": "140436634970-r2sei358a297eesd13n64utue0bcun9v.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA4SxOGwVWLAsSwxTvkd2yYq9jJmhU9qAI"
+          "current_key": "AIzaSyDEsGb1TxtFJlqD3a4Pt78yzwlDM-k5t2U"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "945450657656-48ke847ab3ufofkdlb6uu4g8mkhp9n0u.apps.googleusercontent.com",
+              "client_id": "140436634970-r2sei358a297eesd13n64utue0bcun9v.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -17,6 +17,7 @@ package com.example.iotmanager;
  */
 
 import android.app.Activity;
+import android.provider.ContactsContract;
 import android.util.Log;
 
         import android.app.NotificationManager;
@@ -27,8 +28,9 @@ import android.util.Log;
         import android.net.Uri;
         import android.support.v4.app.NotificationCompat;
         import android.util.Log;
+import android.widget.Toast;
 
-        import com.google.firebase.messaging.FirebaseMessagingService;
+import com.google.firebase.messaging.FirebaseMessagingService;
         import com.google.firebase.messaging.RemoteMessage;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -60,6 +62,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
+            checkRE(remoteMessage);
         }
 
         // Check if message contains a notification payload.
@@ -71,6 +74,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         // message, here is where that should be initiated. See sendNotification method below.
     }
     // [END receive_message]
+
+    private void checkRE(RemoteMessage d){
+        if(d.getData().get(MyPreferences.DOOR_REQUEST_RE).matches("true")) new MyPreferences(getApplication(),MyPreferences.DOOR_REQUEST_RE,true);
+    }
 
     /**
      * Create and show a simple notification containing the received FCM message.
@@ -95,5 +102,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
+
+        //if(messageBody.split(","))
     }
 }

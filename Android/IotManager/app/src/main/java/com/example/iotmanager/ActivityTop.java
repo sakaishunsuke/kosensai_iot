@@ -1,10 +1,12 @@
 package com.example.iotmanager;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.nifty.cloud.mb.core.NCMB;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,6 +17,8 @@ import android.os.Environment;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -26,6 +30,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -66,10 +71,19 @@ public class ActivityTop extends AppCompatActivity implements NavigationView.OnN
                         //img_refrigrator = (ImageView) findViewById(R.id.imgRefrigrator);
                         //text_refrigrator_time = (TextView) findViewById(R.id.textRefrigratorTime);
 
-        //FCM
-        Intent intent = new Intent(this.getApplicationContext(),MyFirebaseInstanceIDService.class);
-        startService(intent);
+        //名前の設定
+        if(new MyPreferences().getString(this,MyPreferences.USERNAME).matches("-1")){
+            new MyPreferences(this,MyPreferences.USERNAME,getStringDialog("名前を入力してください\n後で変更もできます"));
+        }
 
+        //FCM
+        Log.d("FCM", "トークン取得サービス開始");
+        Intent intent = new Intent(getApplicationContext(),com.example.iotmanager.MyFirebaseInstanceIDService.class);
+        startService(intent);
+         intent = new Intent(getApplicationContext(),com.example.iotmanager.MyFirebaseMessagingService.class);
+        startService(intent);
+        //String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+        Log.d("FCM", "トークン取得サービス開始完了");
         //NCMB系
         ncmbController = new NcmbController(this.getApplication());
 
@@ -129,6 +143,34 @@ public class ActivityTop extends AppCompatActivity implements NavigationView.OnN
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    //文字入力をしてもらうダイアログ
+    private String getStringDialog(final String titel){
+        //入力された文字を入れる変数
+        final String[] in_put_s = {""};
+        //テキスト入力を受け付けるビューを作成します。
+        final EditText editView = new EditText(getApplicationContext());
+        new AlertDialog.Builder(ActivityTop.this)
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .setTitle(titel)
+                //setViewにてビューを設定します。
+                .setView(editView)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        if(editView.getText().toString().matches("")){
+                            //文字が入っていないので入れてもらうように通知
+                            Toast.makeText(getApplicationContext(), "文字を入力してください", Toast.LENGTH_LONG).show();
+                            in_put_s[0] = getStringDialog(titel);
+                        }
+                    }
+                })
+                /* .setNegativeButton("キャンセル", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                    }
+                })*/
+                .show();
+        return in_put_s[0];
+    }
+
     //ドアの状態の取得＆画像に差し替え開始
     private void getDoorState(){
         final boolean toast = false;
@@ -143,10 +185,10 @@ public class ActivityTop extends AppCompatActivity implements NavigationView.OnN
                 public void run() {
                     // UIスレッド部
                     if(!ncmbController.doorLoding){//取得完了
-                        if (ncmbController.doorList.size() > 0 && ncmbController.doorList.get(0).get(ncmbController.STATE).matches("open")) {
+                        if ( ncmbController.doorList.get(0).get(ncmbController.STATE) != null && ncmbController.doorList.get(0).get(ncmbController.STATE).matches("open")) {
                             //開いている
                             img_but_door.setImageResource(R.drawable.door_open);
-                        }else if(ncmbController.doorList.size() > 0 && ncmbController.doorList.get(0).get(ncmbController.STATE).matches("close")) {
+                        }else if( ncmbController.doorList.get(0).get(ncmbController.STATE) != null && ncmbController.doorList.get(0).get(ncmbController.STATE).matches("close")) {
                             //閉まってる
                             img_but_door.setImageResource(R.drawable.door_close);
                         }else {
@@ -162,37 +204,54 @@ public class ActivityTop extends AppCompatActivity implements NavigationView.OnN
             Toast.makeText(this.getApplicationContext(),"取得開始できません",Toast.LENGTH_SHORT).show();
         }
     }
-    //ドアの状態の取得＆画像に差し替え開始
+    //ドアの開閉開始
     private void setDoorRequest(){
-        final boolean toast = false;
-        if(ncmbController.setDoorRequest()){
+        final boolean toast = true;
+        String request = "";
+        //現在の状態確認(ローカル情報)
+        if (ncmbController.doorList.get(0).get(ncmbController.STATE) != null && ncmbController.doorList.get(0).get(ncmbController.STATE).matches("open")) {
+            //開いているので閉める
             if(toast)Toast.makeText(this.getApplicationContext(),"ドア開閉開始",Toast.LENGTH_SHORT).show();
+            request = "close";
+        }else if(ncmbController.doorList.get(0).get(ncmbController.STATE) != null && ncmbController.doorList.get(0).get(ncmbController.STATE).matches("close")) {
+            //閉まってるので開ける
+            if(toast)Toast.makeText(this.getApplicationContext(),"ドア開閉開始",Toast.LENGTH_SHORT).show();
+            request = "open";
+        }else {
+            //どちらでもないのでできない
+            Toast.makeText(getApplicationContext(),"状態が分からないので\n開閉できません",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        //ここからリクエスト
+        if(ncmbController.setDoorRequest(request)){
             // 定期処理
             final Context context = this.getApplicationContext();
             final Handler handler = new Handler();
             final Runnable r = new Runnable() {
-                int count = 0;
+                long request_finish_time = 0 ,time_out = 10000;
+                boolean request_finish = false;
                 @Override
                 public void run() {
                     // UIスレッド部
-                    if(!ncmbController.doorProcessing){//取得完了
-                        if (ncmbController.doorList.size() > 0 && ncmbController.doorList.get(0).get(ncmbController.REQUEST).matches("open")) {
-                            //開いている
-                            img_but_door.setImageResource(R.drawable.door_open);
-                        }else if(ncmbController.doorList.size() > 0 && ncmbController.doorList.get(0).get(ncmbController.REQUEST).matches("close")) {
-                            //閉まってる
-                            img_but_door.setImageResource(R.drawable.door_close);
-                        }else {
-                            //どちらでもない
+                    if(!ncmbController.doorProcessing && request_finish == false){//取得完了
+                        request_finish = true;
+                        request_finish_time = System.currentTimeMillis();//リクエストの完了した時間を記録
+                    }else if(request_finish) {
+                        if(new MyPreferences().getboolen(context,MyPreferences.DOOR_REQUEST_RE)){
+                            if(toast)Toast.makeText(context,"レスポンスがありました\n"+(System.currentTimeMillis() - request_finish_time )+"ミリ秒でした",Toast.LENGTH_SHORT).show();
+                            new MyPreferences(context,MyPreferences.DOOR_REQUEST_RE,false);
+                            getDoorState();
+                            return;//定期処理終了
+                        }else if((System.currentTimeMillis() - request_finish_time ) > time_out){
+                            if(toast)Toast.makeText(context,"タイムアウトしました",Toast.LENGTH_SHORT).show();
+                            return;//定期処理終了
                         }
-                        return;//定期処理終了
+
                     }
                     handler.postDelayed(this, 100);
                 }
             };
             handler.post(r);
-        }else{
-            Toast.makeText(this.getApplicationContext(),"取得開始できません",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -275,6 +334,8 @@ public class ActivityTop extends AppCompatActivity implements NavigationView.OnN
     protected void onResume() {
         super.onResume();
         getDoorState();//ドアの状態を取得
+        //自分のFCMのカギ番号確認&保存
+        new MyPreferences(this,MyPreferences.FCMTOKEN,FirebaseInstanceId.getInstance().getToken());
     }
     @Override
     protected void onStart(){

@@ -1,13 +1,8 @@
 package com.example.iotmanager;
 
 import com.google.firebase.iid.FirebaseInstanceIdService;
-
-        import android.util.Log;
-
-        import com.google.firebase.iid.FirebaseInstanceId;
-        import com.google.firebase.iid.FirebaseInstanceIdService;
-
-
+import android.util.Log;
+import com.google.firebase.iid.FirebaseInstanceId;
 public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
 
     private static final String TAG = "MyFirebaseIIDService";
@@ -42,5 +37,6 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
      */
     private void sendRegistrationToServer(String token) {
         // TODO: Implement this method to send token to your app server.
+        Log.d(TAG, "Refreshed token: " + token);
     }
 }

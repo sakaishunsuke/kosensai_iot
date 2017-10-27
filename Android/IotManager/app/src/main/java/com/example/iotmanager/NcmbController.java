@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Environment;
 import android.widget.Toast;
 
+import com.nifty.cloud.mb.core.DoneCallback;
 import com.nifty.cloud.mb.core.FetchFileCallback;
 import com.nifty.cloud.mb.core.FindCallback;
 import com.nifty.cloud.mb.core.NCMB;
@@ -178,7 +179,27 @@ public class NcmbController {
         return true;
 
     }
-    public boolean setDoorRequest(){
-        return false;
+    public boolean setDoorRequest(String request) {
+        final boolean toast = true;
+        NCMBObject obj = new NCMBObject("DoorRequest");
+        obj.put("user", new MyPreferences().getString(context,MyPreferences.USERNAME));//名前をセット
+        obj.put("request", request);//リクエスト内容セット
+        obj.put("token", new MyPreferences().getString(context,MyPreferences.FCMTOKEN));//トークン番号セット
+        doorProcessing = true;
+        obj.saveInBackground(new DoneCallback() {
+            @Override
+            public void done(NCMBException e) {
+                if (e != null) {
+                    if(toast)Toast.makeText(context,"リクエスト失敗",Toast.LENGTH_SHORT).show();
+                    doorProcessing = false;
+                    //エラー発生時の処理
+                } else {
+                    if(toast)Toast.makeText(context,"リクエスト成功",Toast.LENGTH_SHORT).show();
+                    doorProcessing = false;
+                    //成功時の処理
+                }
+            }
+        });
+        return true;
     }
 }
