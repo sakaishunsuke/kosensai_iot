@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <corners android:radius="5dp"/>
+    <corners android:radius="7dp"/>
 
-    <stroke android:width="2dp" android:color="@color/dialog_refrigerator_base_color"/>
+    <stroke android:width="3dp" android:color="@color/dialog_refrigerator_base_color"/>
 
-    <gradient android:startColor="#ffffff" android:endColor="#dcdcdc" android:angle="90"/>
+    <gradient android:startColor="@color/dialog_refrigerator_background_color" android:endColor="@color/dialog_refrigerator_background_color" android:angle="90"/>
 
 </shape>
