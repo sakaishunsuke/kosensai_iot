@@ -72,12 +72,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         // Also if you intend on generating your own notifications as a result of a received FCM
         // message, here is where that should be initiated. See sendNotification method below.
+
     }
     // [END receive_message]
 
     private void checkRE(RemoteMessage d){
-        if(d.getData().get(MyPreferences.DOOR_REQUEST_RE).matches("true")) new MyPreferences(getApplication(),MyPreferences.DOOR_REQUEST_RE,true);
+        if(d.getData().get(MyPreferences.REQUEST_RE).matches("door")) new MyPreferences(getApplication(),MyPreferences.DOOR_REQUEST_RE,true);
+        //if(d.getData().get(MyPreferences.DOOR_REQUEST_RE).matches("true")) new MyPreferences(getApplication(),MyPreferences.DOOR_REQUEST_RE,true);
     }
+
 
     /**
      * Create and show a simple notification containing the received FCM message.
@@ -85,6 +88,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
      * @param messageBody FCM message body received.
      */
     private void sendNotification(String messageBody) {
+        if(messageBody.matches("nodata"))return;
         Intent intent = new Intent(this, ActivityTop.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
@@ -102,6 +106,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
+        Log.d(TAG, "Message Notification Body: ");
 
         //if(messageBody.split(","))
     }

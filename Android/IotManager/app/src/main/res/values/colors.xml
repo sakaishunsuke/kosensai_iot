@@ -20,5 +20,6 @@
     <color name="dialog_refrigerator_background_color">#ffffff</color>
     <color name="dialog_refrigerator_titel_button_color">#ffffff</color>
     <color name="dialog_refrigerator_messe_color">#000000</color>
+    <color name="gray_back">#c8c8c8c8</color>
 
 </resources>

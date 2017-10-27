@@ -19,6 +19,7 @@ import static android.os.ParcelFileDescriptor.MODE_WORLD_READABLE;
 public class MyPreferences {
     static final String FCMTOKEN = "FCMTOKEN";
     static final String USERNAME = "USERNAME";
+    static final String REQUEST_RE = "REQUEST_RE";
     static final String DOOR_REQUEST_RE = "DOOR_REQUEST_RE";
 
     MyPreferences(Context c,String key,String data){

@@ -1,7 +1,6 @@
 package com.example.iotmanager;
 
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.nifty.cloud.mb.core.NCMB;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -13,7 +12,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -26,7 +24,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
@@ -38,7 +35,6 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Timer;
 
 public class ActivityTop extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -62,8 +58,8 @@ public class ActivityTop extends AppCompatActivity implements NavigationView.OnN
         setSupportActionBar(toolbar);
 
         //Viewセット＆関連付け
-        img_but_door = (ImageButton) findViewById(R.id.imgButTopActivityDoor);
-        img_but_curtain = (ImageButton) findViewById(R.id.imgButTopActivityCurtain);
+        img_but_door = (ImageButton) findViewById(R.id.imgButTopActivityLight);
+        img_but_curtain = (ImageButton) findViewById(R.id.imgButTopActivityLight);
         img_but_refrigerator = (ImageButton) findViewById(R.id.imgButTopActivityRefrigerator);
         img_but_light = (ImageButton) findViewById(R.id.imgButTopActivityLight);
         img_but_myfavorite1 = (ImageButton) findViewById(R.id.imgButTopActivityMyfavorite01);
@@ -72,7 +68,7 @@ public class ActivityTop extends AppCompatActivity implements NavigationView.OnN
                         //text_refrigrator_time = (TextView) findViewById(R.id.textRefrigratorTime);
 
         //名前の設定
-        if(new MyPreferences().getString(this,MyPreferences.USERNAME).matches("-1")){
+        if(new MyPreferences().getString(this,MyPreferences.USERNAME).matches("")){
             new MyPreferences(this,MyPreferences.USERNAME,getStringDialog("名前を入力してください\n後で変更もできます"));
         }
 
