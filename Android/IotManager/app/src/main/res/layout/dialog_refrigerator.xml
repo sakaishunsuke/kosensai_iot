@@ -37,33 +37,76 @@
             android:layout_margin="10dp"
             android:saveEnabled="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/curtain_open" />
+            android:src="@drawable/refrigerator_button" />
 
-        <TextView
-            android:id="@+id/dialog_drink1"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center_horizontal"
-            android:lineSpacingExtra="6dp"
-            android:text="飲み物1　OOｇ"
-            android:textColor="@color/dialog_refrigerator_messe_color"
-            android:textSize="20sp" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/dialog_drink1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingExtra="6dp"
+                    android:text="飲み物1"
+                    android:textColor="@color/dialog_refrigerator_messe_color"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/img_drink1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="false"
+                    android:layout_below="@+id/dialog_drink1"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:adjustViewBounds="true"
+                    android:saveEnabled="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/refrigerator_button" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/dialog_drink2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingExtra="6dp"
+                    android:text="飲み物2"
+                    android:textColor="@color/dialog_refrigerator_messe_color"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/img_drink2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dialog_drink2"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:adjustViewBounds="true"
+                    android:saveEnabled="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/refrigerator_button" />
+            </RelativeLayout>
+        </LinearLayout>
 
         <!-- OK ボタン -->
-
-        <TextView
-            android:id="@+id/dialog_drink2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center_horizontal"
-            android:lineSpacingExtra="6dp"
-            android:text="飲み物2　OOｇ"
-            android:textColor="@color/dialog_refrigerator_messe_color"
-            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/dialog_time_data"
@@ -78,7 +121,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/dialog_positive_button"
+            android:id="@+id/dialog_on_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

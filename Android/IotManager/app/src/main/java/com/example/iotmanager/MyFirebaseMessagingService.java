@@ -77,8 +77,39 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     // [END receive_message]
 
     private void checkRE(RemoteMessage d){
-        if(d.getData().get(MyPreferences.REQUEST_RE).matches("door")) new MyPreferences(getApplication(),MyPreferences.DOOR_REQUEST_RE,true);
-        //if(d.getData().get(MyPreferences.DOOR_REQUEST_RE).matches("true")) new MyPreferences(getApplication(),MyPreferences.DOOR_REQUEST_RE,true);
+        //if(d.getData().get(MyPreferences.DOOR_REQUEST_RE).matches("door")) new MyPreferences(getApplication(),MyPreferences.DOOR_REQUEST_RE,true);
+        String data_messe = "";
+        if( d.getData().get("REQUEST_RE") != null && !(data_messe = d.getData().get("REQUEST_RE")).matches("") ) {
+            switch (data_messe) {
+                case "door":
+                    new MyPreferences(getApplication(), MyPreferences.DOOR_REQUEST_RE, true);
+                    break;
+                case "curtain":
+                    new MyPreferences(getApplication(), MyPreferences.CURTAIN_REQUEST_RE, true);
+                    break;
+                case "lamp":
+                    new MyPreferences(getApplication(), MyPreferences.LIGHT_REQUEST_RE, true);
+                    break;
+            }
+        }
+        if( d.getData().get("NOTIFICATION") != null && !(data_messe = d.getData().get("NOTIFICATION")).matches("") ) {
+            switch (data_messe) {
+                case "door":
+                    new MyPreferences(getApplication(), MyPreferences.DOOR_NOTIFICATION, true);
+                    break;
+                case "curtain":
+                    new MyPreferences(getApplication(), MyPreferences.CURTAIN_NOTIFICATION, true);
+                    break;
+                case "lamp":
+                    new MyPreferences(getApplication(), MyPreferences.LIGHT_NOTIFICATION, true);
+                    break;
+                default:
+                    if( !(data_messe = d.getData().get("MESSAGE")).matches("") ) {
+                        new MyPreferences(getApplication(), MyPreferences.MESSAGE_NOTIFICATION, data_messe);
+                    }
+                    break;
+            }
+        }
     }
 
 

@@ -21,6 +21,12 @@ public class MyPreferences {
     static final String USERNAME = "USERNAME";
     static final String REQUEST_RE = "REQUEST_RE";
     static final String DOOR_REQUEST_RE = "DOOR_REQUEST_RE";
+    static final String CURTAIN_REQUEST_RE = "CURTAIN_REQUEST_RE";
+    static final String LIGHT_REQUEST_RE = "LIGHT_REQUEST_RE";
+    static final String DOOR_NOTIFICATION = "DOOR_NOTIFICATION";
+    static final String CURTAIN_NOTIFICATION = "CURTAIN_NOTIFICATION";
+    static final String LIGHT_NOTIFICATION = "LIGHT_NOTIFICATION";
+    static final String MESSAGE_NOTIFICATION ="MESSAGE_NOTIFICATION";
 
     MyPreferences(Context c,String key,String data){
         init(c).putString(key, data).commit();
